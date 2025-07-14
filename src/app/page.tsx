@@ -7,6 +7,7 @@ import { CartIcon } from '@/components/CartIcon';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cartStore';
 import { useState } from 'react';
+import { Product } from '@/types';
 
 export default function Home() {
   const { data: products, isLoading, error } = useProducts();
