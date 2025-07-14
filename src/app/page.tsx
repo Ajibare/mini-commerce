@@ -63,9 +63,14 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {(searchResults || products).map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {(!searchResults && products) 
+            ? products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            : searchResults?.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+          }
         </div>
       </main>
 
