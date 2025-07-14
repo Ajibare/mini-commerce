@@ -1,26 +1,31 @@
 # Mini-Commerce
 
-A modern e-commerce shop built with Next.js 14 and App Router.
+A modern e-commerce shop built with Next.js 13+ and TypeScript.
 
 ## Features
 
-- Product catalog with 8+ items
-- Shopping cart with localStorage persistence
-- Product detail pages
-- Checkout flow with order confirmation
-- Responsive design
-- SEO optimized
-- TypeScript with strict mode
+- Browse products with images, descriptions, and prices
+- Add items to cart with quantity support
+- View cart contents and manage items
+- Complete checkout flow with order confirmation
+- Responsive design for all devices
+- Dark mode support
+- Search and filter functionality
+- SEO optimized with meta tags
+- TypeScript strict mode
+- Jest + React Testing Library tests
+- Zustand state management with persistence
+- React Query for data fetching
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
-- React
+- Next.js 13+
+- TypeScript with strict mode
 - React Query
 - Zustand
 - Tailwind CSS
-- TypeScript (strict mode)
-- shadcn/ui
+- Jest + React Testing Library
+- Lucide React icons
 
 ## Getting Started
 
@@ -29,46 +34,69 @@ A modern e-commerce shop built with Next.js 14 and App Router.
    ```bash
    npm install
    ```
-3. Run the development server:
+3. Start the development server:
    ```bash
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) with your browser
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Project Structure
 
 ```
 src/
-├── app/            # Next.js App Router pages
-├── components/     # Reusable React components
-├── data/          # Static data
-├── hooks/         # Custom React hooks
-├── lib/           # Utility functions
-├── store/         # Zustand store
-└── types/         # TypeScript interfaces
+├── app/                 # Next.js app directory
+├── components/          # Reusable UI components
+├── data/               # Product data and static assets
+├── hooks/              # Custom React hooks
+├── store/              # Zustand store
+├── types/              # TypeScript types
+└── utils/              # Utility functions
 ```
+
+## Design Decisions
+
+- Mobile-first responsive design
+- Clean, modern UI with Tailwind CSS
+- Dark mode using Tailwind's dark mode variant
+- Optimized images using Next.js Image component
+- Semantic HTML for accessibility
+
+## State Management
+
+- Zustand for global cart state
+- React Query for product data fetching
+- Local storage persistence for cart
+- Derived selectors for cart totals
+
+## Error Handling
+
+- Loading states for async operations
+- Error boundaries
+- User-friendly error messages
+- Graceful degradation for failed requests
 
 ## Testing
 
-Run tests with:
-```bash
-npm test
-```
+- Jest for unit tests
+- React Testing Library for component tests
+- End-to-end testing with Playwright
 
-## Deployment
+## SEO
 
-Deploy on Vercel:
-1. Push to GitHub
-2. Connect to Vercel
-3. Deploy automatically on push
-
-## License
-
-MIT License
+- Dynamic meta tags
+- Open Graph tags
+- Twitter card support
+- Sitemap generation
+- Image optimization
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-# mini-commerce
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+MIT
