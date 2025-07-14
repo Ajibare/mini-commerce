@@ -13,7 +13,7 @@ export function CartItem({ product, quantity }: CartItemProps) {
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = parseInt(e.target.value) || 1;
-    updateQuantity(product.id, newQuantity);
+    updateQuantity(String(product.id), newQuantity);
   };
 
   return (
@@ -45,7 +45,7 @@ export function CartItem({ product, quantity }: CartItemProps) {
             type="number"
             value={quantity}
             onChange={handleQuantityChange}
-            className="w-16 text-center "
+            className="w-16 text-center"
             min="1"
           />
           <Button
