@@ -45,7 +45,19 @@ export default function Home() {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Mini-Commerce</h1>
           <div className="flex items-center space-x-4">
-            <SearchBar onSearch={setSearchResults} />
+            <SearchBar 
+              onSearch={(query) => {
+                if (products) {
+                  const filteredProducts = products.filter(product => 
+                    product.name.toLowerCase().includes(query.toLowerCase()) ||
+                    product.description.toLowerCase().includes(query.toLowerCase())
+                  );
+                  setSearchResults(filteredProducts);
+                } else {
+                  setSearchResults(null);
+                }
+              }} 
+            />
             <CartIcon />
           </div>
         </div>
