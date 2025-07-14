@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Product } from '@/types';
+import { Product } from '@/types/index';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cartStore';
 

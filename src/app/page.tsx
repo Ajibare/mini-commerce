@@ -7,7 +7,7 @@ import { CartIcon } from '@/components/CartIcon';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cartStore';
 import { useState } from 'react';
-import { Product } from '@/types';
+import { Product } from '@/types/index';
 
 export default function Home() {
   const { data: products, isLoading, error } = useProducts();
@@ -65,10 +65,10 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {(!searchResults && products) 
             ? products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={String(product.id)} product={product} />
               ))
             : searchResults?.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={String(product.id)} product={product} />
               ))
           }
         </div>

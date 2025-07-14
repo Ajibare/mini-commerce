@@ -36,7 +36,7 @@ export function CartItem({ product, quantity }: CartItemProps) {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => updateQuantity(product.id, quantity - 1)}
+            onClick={() => updateQuantity(String(product.id), quantity - 1)}
             disabled={quantity <= 1}
           >
             -
@@ -51,7 +51,7 @@ export function CartItem({ product, quantity }: CartItemProps) {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => updateQuantity(product.id, quantity + 1)}
+            onClick={() => updateQuantity(String(product.id), quantity + 1)}
           >
             +
           </Button>
@@ -59,7 +59,7 @@ export function CartItem({ product, quantity }: CartItemProps) {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => removeItem(product.id)}
+          onClick={() => removeItem(String(product.id))}
         >
           Remove
         </Button>
