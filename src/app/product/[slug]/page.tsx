@@ -19,9 +19,15 @@ export default function ProductDetail({ params }: ProductDetailProps) {
   const { addItem } = useCartStore();
   const [product, setProduct] = useState<Product | null>(null);
 
+  // useEffect(() => {
+  //   if (products) {
+  //     const foundProduct = products.find(p => p.slug === slug);
+  //     setProduct(foundProduct || null);
+  //   }
+  // }, [products, slug]);
   useEffect(() => {
-    if (products) {
-      const foundProduct = products.find(p => p.slug === slug);
+    if (Array.isArray(products)) {
+      const foundProduct = products.find((p) => p.slug === slug);
       setProduct(foundProduct || null);
     }
   }, [products, slug]);
