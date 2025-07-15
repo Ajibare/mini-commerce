@@ -7,18 +7,31 @@ import { CartIcon } from '@/components/CartIcon';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cartStore';
 import { useState, useMemo } from 'react';
-import { Product } from '@/types/index';
+import { Product } from '@/types';
 
 export default function Home() {
   const { data: productsData, isLoading, error } = useProducts();
   const { items } = useCartStore();
   const [searchQuery, setSearchQuery] = useState('');
 
+  // const filteredProducts = useMemo(() => {
+  //   if (!productsData) return [];
+
+  //   if (!searchQuery || typeof searchQuery !== 'string' || !searchQuery.trim()) return productsData;
+
+  //   return productsData.filter((product) =>
+  //     product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //     product.description.toLowerCase().includes(searchQuery.toLowerCase())
+  //   );
+  // }, [productsData, searchQuery]);
+
   const filteredProducts = useMemo(() => {
-    if (!productsData) return [];
-
-    if (!searchQuery || typeof searchQuery !== 'string' || !searchQuery.trim()) return productsData;
-
+    if (!Array.isArray(productsData)) return [];
+  
+    if (!searchQuery || typeof searchQuery !== 'string' || !searchQuery.trim()) {
+      return productsData;
+    }
+  
     return productsData.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.description.toLowerCase().includes(searchQuery.toLowerCase())
