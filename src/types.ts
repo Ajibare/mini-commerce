@@ -1,3 +1,6 @@
+
+
+
 export interface Product {
   id: number;
   name: string;
@@ -7,4 +10,10 @@ export interface Product {
   slug: string;
   category?: string;
   featured?: boolean;
+}
+
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
 }
