@@ -14,15 +14,7 @@ export function SearchBar({ onSearch }: SearchProps) {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
-    
-    if (products) {
-      const filteredProducts = products.filter(product => 
-        product.name.toLowerCase().includes(value.toLowerCase()) ||
-        product.description.toLowerCase().includes(value.toLowerCase())
-      );
-      
-      onSearch(filteredProducts);
-    }
+    onSearch(value);
   };
 
   return (
