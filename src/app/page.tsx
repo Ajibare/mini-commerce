@@ -10,9 +10,9 @@ import { useState } from 'react';
 import { Product } from '@/types/index';
 
 export default function Home() {
-  const { data: products, isLoading, error } = useProducts();
+  const { data: productsData, isLoading, error } = useProducts();
   const { items } = useCartStore();
-  const [searchResults, setSearchResults] = useState<Product[] | null>(null);
+  const [searchedProducts, setSearchedProducts] = useState<Product[]>([]);
 
   if (isLoading) {
     return (
@@ -47,14 +47,14 @@ export default function Home() {
           <div className="flex items-center space-x-4">
             <SearchBar 
               onSearch={(query) => {
-                if (products) {
-                  const filteredProducts = products.filter(product => 
+                if (productsData) {
+                  const filteredProducts = productsData.filter(product => 
                     product.name.toLowerCase().includes(query.toLowerCase()) ||
                     product.description.toLowerCase().includes(query.toLowerCase())
                   );
-                  setSearchResults(filteredProducts);
+                  setSearchedProducts(filteredProducts);
                 } else {
-                  setSearchResults(null);
+                  setSearchedProducts([]);
                 }
               }} 
             />
@@ -63,11 +63,11 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {(!searchResults && products) 
-            ? products.map((product) => (
+          {(!searchedProducts.length && productsData) 
+            ? productsData.map((product) => (
                 <ProductCard key={String(product.id)} product={product} />
               ))
-            : searchResults?.map((product) => (
+            : searchedProducts.map((product) => (
                 <ProductCard key={String(product.id)} product={product} />
               ))
           }
