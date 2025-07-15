@@ -13,6 +13,7 @@ export const useProducts = () => {
         id: String(product.id), // ✅ convert ID to string
       })),
     staleTime: Infinity,
+    
   });
 };
 
