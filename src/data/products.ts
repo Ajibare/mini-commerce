@@ -9,6 +9,7 @@ export const products: Product[] = [
     image: '/headphone.jpg',
     category: 'Electronics',
     slug: 'wireless-headphones',
+    featured: true,
   },
   {
     id: '2',
@@ -18,6 +19,7 @@ export const products: Product[] = [
     image: '/smartwatch.jpg',
     category: 'Electronics',
     slug: 'smart-watch',
+    featured: true,
   },
   {
     id: '3',
@@ -27,6 +29,7 @@ export const products: Product[] = [
     image: '/backpack.jpg',
     category: 'Accessories',
     slug: 'laptop-backpack',
+    featured: true,
   },
   {
     id: '4',
@@ -36,6 +39,7 @@ export const products: Product[] = [
     image: '/keyboard.jpg',
     category: 'Electronics',
     slug: 'gaming-keyboard',
+    featured: true,
   },
   {
     id: '5',
@@ -45,6 +49,7 @@ export const products: Product[] = [
     image: '/mouse.jpg',
     category: 'Electronics',
     slug: 'wireless-mouse',
+    featured: true,
   },
   {
     id: '6',
@@ -54,6 +59,7 @@ export const products: Product[] = [
     image: '/ssd.jpg',
     category: 'Electronics',
     slug: 'external-ssd',
+    featured: true,
   },
   {
     id: '7',
@@ -63,6 +69,7 @@ export const products: Product[] = [
     image: '/usb-hub.jpg',
     category: 'Accessories',
     slug: 'usb-hub',
+    featured: true,
   },
   {
     id: '8',
@@ -72,5 +79,6 @@ export const products: Product[] = [
     image: '/chair.jpg',
     category: 'Furniture',
     slug: 'gaming-chair',
+    featured: true,
   },
 ];
